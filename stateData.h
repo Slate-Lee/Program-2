@@ -12,8 +12,22 @@ class State
         string capitol;
         string region;
         int yearFounded;
+
     public:
         State(){}
+
+        ~State(){}
+
+        void add();
+
+        void remove();
+
+        void sort();
+
+        void display();
+
+        void save();
+
         State(string n, string c, string r, int y)
         {
             this->name = n;
@@ -33,9 +47,21 @@ class State
 			return os;
 		}
 
-        // OVERLOADED
+        bool operator < (const State& other) const //These are what I got stackoverflow not sure what they do but powerpoint said we need them
 
-        // OVERLOADED
+        {
+            return this->name < other.name;
+        }
+
+        bool operator > (const State& other) const 
+        {
+            return this->name > other.name;
+        }
+
+        bool operator == (const State& other) const 
+        {
+            return this->name == other.name;
+        }
 
 };
 

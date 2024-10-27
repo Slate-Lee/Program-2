@@ -16,18 +16,32 @@ class LinkedList
 		}; 
 
 		ListNode *head;	
-		ListNode *tail;		
+		ListNode *tail;
+		int numNodes;
 
 	public:
 		LinkedList()
 		{ 
 			head = NULL; 
 			tail = NULL;
+			numNodes = 0;
 		}
 		~LinkedList();
+
+		bool isEmpty() const;
+		int getLength();
 		void appendNode(T value);
-		void deleteNode(int position);
-		void displayList() const;
+		void insertNode(int position, T value);
+    	void deleteNode(int position);
+    	void displayList() const;
+		void swap(ListNode* node1, ListNode* node2);
+		T getFront() const;
+    
+    	friend ostream& operator<<(ostream &os, const LinkedList<T> &list) 
+		{
+        	list.displayList();
+        	return os;
+   	 	}
 };
 
 template <typename T>
@@ -43,6 +57,21 @@ LinkedList<T>::~LinkedList()
 		delete currentNode;
 		currentNode = nextNode;
 	}
+}
+
+template <typename T>
+bool LinkedList<T>::isEmpty() const
+{
+	if(!head)
+		return true;
+	else
+		return false;
+}
+
+template <typename T>
+int LinkedList<T>::getLength()
+{
+	return numNodes;
 }
 
 template <typename T>
@@ -105,6 +134,14 @@ void LinkedList<T>::deleteNode(int position)
 }
 
 template <typename T>
+void LinkedList<T>::swap(ListNode* node1, ListNode* node2)
+{
+    T temp = node1->value;
+    node1->value = node2->value;
+    node2->value = temp;
+}
+
+template <typename T>
 void LinkedList<T>::displayList() const 
 {
 	ListNode *currentNode;
@@ -119,6 +156,16 @@ void LinkedList<T>::displayList() const
 		currentNode = currentNode->next;
 		i++;
 	}
+}
+
+template <typename T>
+T LinkedList<T>::getFront() const
+{
+	if (isEmpty())
+	{
+		cout << "List is empty.";
+	}
+	return head->value;
 }
 
 #endif

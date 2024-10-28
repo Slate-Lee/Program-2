@@ -2,6 +2,11 @@
 #include "stateData.h"
 #include <fstream>
 
+void State::import()
+{
+    
+}
+
 void State::add() 
 {
     cout << "Enter state name: ";
@@ -30,7 +35,7 @@ void State::remove()
         if (current->value.name == stateName) 
         {
             stateList.deleteNode(pos);
-            cout << "State " << stateName << " removed successfully." << endl;
+            cout << "State with memory adress '" << stateName << "'successfully removed." << endl;
             found = true;
             break;
         }

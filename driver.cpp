@@ -3,12 +3,13 @@
 #include <iostream>
 #include "LinkedList.h"
 #include "stateData.h"
+#include "stateManager.h"
 
 int main () 
 {
-    LinkedList<State> list;
+    /*LinkedList<State> list;
 
-    stateData state;
+    State state;
 
     State state1("Tennessee", "Nashville", "Southeast", (1796));
     State state2("California", "Sacramento", "West", (1850));
@@ -17,11 +18,13 @@ int main ()
     list.appendNode(state2);
 
     cout << "Initial State List:" << endl;
-    list.displayList();
+    list.displayList();*/
 
+    StateManager manager;
     int choice;
+    string stateName;
 
-  do
+    do
     {
         // menu options
         cout << "\n Menu Options: ";
@@ -46,22 +49,24 @@ int main ()
         switch (choice)
         {
         case 1:
-            state.Import();
+            //manager.import();
             break;
-        case 2:
-            state.Add();
+        case 2:                     // ADD - WORKING
+            manager.add();
             break;
-        case 3:
-            state.Remove();
+        case 3:                     // REMOVE - WORKING
+            cout << endl << "Enter state name to remove: ";
+            cin >> stateName;
+            manager.remove(stateName);
             break;
         case 4:
-            state.Save();
+            manager.save();
             break;
-        case 5:
-            state.Display();
+        case 5:                     // DISPLAY - WORKING
+            manager.display();
             break;
         case 6:
-            state.Sort();
+            //manager.sort();
             break;
         }
     } while (choice != 7);

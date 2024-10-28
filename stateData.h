@@ -15,17 +15,12 @@ class State
 
     public:
         State(){}
-
         ~State(){}
-
+        void import();
         void add();
-
         void remove();
-
         void sort();
-
         void display();
-
         void save();
 
         State(string n, string c, string r, int y)
@@ -34,6 +29,10 @@ class State
             this->capitol = c;
             this->region = r;
             this->yearFounded = y;
+        }
+
+        string getName() const{
+            return name;
         }
 
         // OVERLOADED OPERATOR <<

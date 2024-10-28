@@ -8,18 +8,17 @@ using namespace std;
 template <typename T>
 class LinkedList
 {
-	private:
-		struct ListNode
-		{
-			T value;
-			ListNode *next;
-		}; 
-
-		ListNode *head;	
-		ListNode *tail;
-		int numNodes;
-
 	public:
+		struct ListNode
+				{
+					T value;
+					ListNode *next;
+				}; 
+
+				ListNode *head;	
+				ListNode *tail;
+				int numNodes;
+
 		LinkedList()
 		{ 
 			head = NULL; 
@@ -32,16 +31,16 @@ class LinkedList
 		int getLength();
 		void appendNode(T value);
 		void insertNode(int position, T value);
-    	void deleteNode(int position);
-    	void displayList() const;
+		void deleteNode(int position);
+		void displayList() const;
 		void swap(ListNode* node1, ListNode* node2);
 		T getFront() const;
     
-    	friend ostream& operator<<(ostream &os, const LinkedList<T> &list) 
+		friend ostream& operator<<(ostream &os, const LinkedList<T> &list) 
 		{
-        	list.displayList();
-        	return os;
-   	 	}
+			list.displayList();
+			return os;
+		}
 };
 
 template <typename T>
@@ -53,7 +52,7 @@ LinkedList<T>::~LinkedList()
 	while (currentNode != nullptr)
 	{
 		nextNode = currentNode->next;
-		cout << "Deleting node with memory address: " << currentNode  << "." << endl;
+		cout << "Deleting state '" << currentNode << ".'" << endl;
 		delete currentNode;
 		currentNode = nextNode;
 	}
@@ -144,13 +143,15 @@ void LinkedList<T>::swap(ListNode* node1, ListNode* node2)
 template <typename T>
 void LinkedList<T>::displayList() const 
 {
+	cout << endl << "about to display list...";
 	ListNode *currentNode;
 	currentNode = head;
 	int i = 1;
 
+	cout << endl << (currentNode != nullptr);
 	while (currentNode != nullptr)
 	{
-		cout << endl << "*****NODE " << i << " WITH MEMORY ADDRESS: " << currentNode << ".";
+		cout << endl << "STATE " << i << " WITH MEMORY ADDRESS: " << currentNode << ".";
 		cout << currentNode->value << endl;
 
 		currentNode = currentNode->next;

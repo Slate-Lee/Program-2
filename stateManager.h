@@ -1,3 +1,7 @@
+/*
+	stateManager.h
+*/
+
 #ifndef STATEMANAGER_H
 #define STATEMANAGER_H
 
@@ -12,14 +16,13 @@ private:
     int numOfStates;
 
 public:
-    StateManager() = default;
+    StateManager() : numOfStates(0) {}
     ~StateManager() = default;
 
+    void initialAdd();
     void add();
     void remove(const string &stateName);
     void display() const;
-    void save() const;
-    void load();
 };
 
 #endif

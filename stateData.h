@@ -1,3 +1,7 @@
+/*
+	stateData.h
+*/
+
 #ifndef STATEDATA_H
 #define STATEDATA_H
 
@@ -16,12 +20,9 @@ class State
     public:
         State(){}
         ~State(){}
-        void import();
         void add();
         void remove();
-        void sort();
         void display();
-        void save();
 
         State(string n, string c, string r, int y)
         {
@@ -38,22 +39,27 @@ class State
         // OVERLOADED OPERATOR <<
         friend ostream & operator << (ostream & os, State s)
 		{
-            os << endl << "State: " << s.name;
-            os << endl << "Capitol: " << s.capitol;
-            os << endl << "Region: " << s.region;
-            os << endl << "yearFounded: " << s.yearFounded;
+            os << endl << "\tState: " << s.name;
+            os << endl << "\tCapitol: " << s.capitol;
+            os << endl << "\tRegion: " << s.region;
+            os << endl << "\tyearFounded: " << s.yearFounded;
 
 			return os;
 		}
 
-        bool operator < (const State& other) const //These are what I got stackoverflow not sure what they do but powerpoint said we need them
+        bool operator<=(const State& other) const {
+            return this->name <= other.name;
+        }
 
-        {
+        bool operator>=(const State& other) const {
+            return this->name >= other.name;
+        }
+
+        bool operator<(const State& other) const {
             return this->name < other.name;
         }
 
-        bool operator > (const State& other) const 
-        {
+        bool operator>(const State& other) const {
             return this->name > other.name;
         }
 

@@ -1,4 +1,6 @@
-//Driver.cpp
+/*
+	Driver.cpp
+*/
 
 #include <iostream>
 #include "LinkedList.h"
@@ -7,71 +9,52 @@
 
 int main () 
 {
-    /*LinkedList<State> list;
-
-    State state;
-
-    State state1("Tennessee", "Nashville", "Southeast", (1796));
-    State state2("California", "Sacramento", "West", (1850));
-
-    list.appendNode(state1);
-    list.appendNode(state2);
-
-    cout << "Initial State List:" << endl;
-    list.displayList();*/
-
     StateManager manager;
     int choice;
     string stateName;
+    
+    LinkedList<State> list;
+
+    manager.initialAdd(); // adds fives states automatically
+
+    cout << "Initial State List:" << endl;
+    manager.display();
 
     do
     {
         // menu options
         cout << "\n Menu Options: ";
-        cout << "\n1 - Import";
-        cout << "\n2 - Add";
-        cout << "\n3 - Remove";
-        cout << "\n4 - Save";
-        cout << "\n5 - Display";
-        cout << "\n6 - Sort";
-        cout << "\n7 - Exit Program";
+        cout << "\n1 - Add";
+        cout << "\n2 - Remove";
+        cout << "\n3 - Display";
+        cout << "\n4 - Exit Program";
 
         do
         {
-            cout << "\nCHOOSE: 1-7: ";
+            cout << "\nCHOOSE: 1-5: ";
             cin >> choice;
-            if (choice < 1 || choice > 7) 
+            if (choice < 1 || choice > 4) 
             {
                 cout << endl << "Invalid choice." << endl;
             }
-        } while (choice < 1 || choice > 7);
+        } while (choice < 1 || choice > 4);
 
         switch (choice)
         {
         case 1:
-            //manager.import();
-            break;
-        case 2:                     // ADD - WORKING
             manager.add();
             break;
-        case 3:                     // REMOVE - WORKING
+        case 2:
             cout << endl << "Enter state name to remove: ";
             cin >> stateName;
             manager.remove(stateName);
             break;
-        case 4:
-            manager.save();
-            break;
-        case 5:                     // DISPLAY - WORKING
+        case 3:
             manager.display();
             break;
-        case 6:
-            //manager.sort();
-            break;
         }
-    } while (choice != 7);
+    } while (choice != 4);
 
     cout << endl << "Goodbye!" << endl;
-
     return 0;
 }

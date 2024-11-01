@@ -1,4 +1,4 @@
-# Program 2 - project title
+# Program 2 - State Manager Program
 
 ### Members:
 Travis Mehaffy, David "Slate" Lee
@@ -6,9 +6,10 @@ Travis Mehaffy, David "Slate" Lee
 ### File Outline:
 Driver.cpp
 Classes
-- LinkedList.h
-- Data.cpp
-- SmartPointer.h
+- LinkedList
+- stateData
+- stateManager
 
 ### Project Description:
-https://prod.liveshare.vsengsaas.visualstudio.com/join?C29728D96FFCCA164AA159AB7BEAB61C6010
+with the following information: name, capitol name,
+region, and year founded.

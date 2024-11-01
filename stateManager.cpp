@@ -1,13 +1,38 @@
+/*
+	stateManager.cpp
+*/
+
 #include "stateManager.h"
 #include <iostream>
 #include <fstream>
+
+void StateManager::initialAdd()
+{
+
+    State state1("Tennessee", "Nashville", "Southeast", 1796);
+    State state2("California", "Sacramento", "West", 1850);
+    State state3("New York", "Albany", "Northeast", 1788);
+    State state4("Texas", "Austin", "Southwest", 1845);
+    State state5("Florida", "Tallahassee", "Southeast", 1845);
+    
+    stateList.appendNode(state1);
+    stateList.appendNode(state2);
+    stateList.appendNode(state3);
+    stateList.appendNode(state4);
+    stateList.appendNode(state5);
+    
+    numOfStates = 5;
+
+    cout << "Initial 5 states successfully added." << endl;
+}
 
 void StateManager::add()
 {
     State state;
     state.add();
     stateList.appendNode(state);
-    cout << "State successfully added." << endl;
+    numOfStates++;
+    cout << "State #" << numOfStates << "successfully added." << endl;
 }
 
 void StateManager::remove(const string &stateName)
@@ -38,43 +63,4 @@ void StateManager::remove(const string &stateName)
 void StateManager::display() const
 {
     stateList.displayList();
-}
-
-void StateManager::save() const
-{
-    ofstream outFile;
-    string fileName;
-    LinkedList<State>::ListNode* current = stateList.head;
-
-    // checks if there are movies in loading
-    if (numOfStates > 0)
-    {
-        cin.ignore();
-
-        cout << endl << "Type a file name (with '.txt') to create or overwrite: ";
-        getline(cin, fileName);
-
-        outFile.open(fileName, ios::out);
-        if (outFile.is_open())
-        {
-            for (int i = 0; i < numOfStates; i++)
-            {
-                // UNFINISHED, NEEDS TO PRINT BACK TO THE TEXT FILE
-            }
-        }
-        else
-        {
-            cout << "Failed to open file." << endl;
-        }
-    }
-    else 
-    {
-        cout << endl << "There are no states to save. Please add or import states then try to save again." << endl;
-    }
-
-}
-
-void StateManager::load()
-{
-    //
 }

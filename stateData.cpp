@@ -1,11 +1,10 @@
+/*
+	stateData.cpp
+*/
+
 #include "LinkedList.h"
 #include "stateData.h"
 #include <fstream>
-
-void State::import()
-{
-    
-}
 
 void State::add() 
 {
@@ -35,7 +34,7 @@ void State::remove()
         if (current->value.name == stateName) 
         {
             stateList.deleteNode(pos);
-            cout << "State with memory adress '" << stateName << "'successfully removed." << endl;
+            cout << "State with memory address '" << stateName << "'successfully removed." << endl;
             found = true;
             break;
         }
@@ -48,32 +47,8 @@ void State::remove()
     }
 }
 
-void State::sort()
-{
-    
-}
-
 void State::display() 
 {
     LinkedList<State> stateList;
     stateList.displayList();
-}
-
-void State::save() 
-{
-    LinkedList<State> stateList;
-    ofstream outFile("state_data.txt");
-    if (!outFile) 
-    {
-        cout << "Error opening file for writing." << endl;
-        return;
-    }
-    typename LinkedList<State>::ListNode* current = stateList.head;
-    while (current != nullptr) 
-    {
-        outFile << current->value;
-        current = current->next;
-    }
-    outFile.close();
-    cout << "State data saved to file successfully." << endl;
 }

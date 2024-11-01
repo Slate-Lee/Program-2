@@ -1,0 +1,18 @@
+1
+2
+Georgia
+Atlanta
+Southeast
+1732
+2
+Maine
+Augusta
+Northeast
+1820
+5
+3
+Georgia
+5
+7
+
+// Update when rest of program is completed

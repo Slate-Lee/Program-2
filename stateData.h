@@ -1,6 +1,9 @@
 /*
-	stateData.h
+    Class:   stateData
+    Purpose: This State class provides methods to manage individual State
+            objects and to interact with a LinkedList of states.
 */
+
 
 #ifndef STATEDATA_H
 #define STATEDATA_H
@@ -38,15 +41,15 @@ class State
 
         // OVERLOADED OPERATOR <<
         friend ostream & operator << (ostream & os, State s)
-		{
+        {
             os << endl << "\tState: " << s.name;
             os << endl << "\tCapitol: " << s.capitol;
             os << endl << "\tRegion: " << s.region;
             os << endl << "\tyearFounded: " << s.yearFounded;
 
-			return os;
-		}
-
+            return os;
+        }
+        
         bool operator<=(const State& other) const {
             return this->name <= other.name;
         }

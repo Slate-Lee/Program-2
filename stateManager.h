@@ -1,5 +1,8 @@
 /*
-	stateManager.h
+    Class:   stateManager
+    Purpose: This StateManager class provides functionality to manage a collection
+            of State objects, allowing the user to add, remove, display, and save
+            these states to a file.
 */
 
 #ifndef STATEMANAGER_H
@@ -21,7 +24,7 @@ public:
 
     void initialAdd();
     void add();
-    void remove(const string &stateName);
+    void remove();
     void display() const;
 };
 
